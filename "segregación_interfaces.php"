@@ -1,0 +1,39 @@
+<?php
+interface video_consola{
+    public function uso();
+}
+interface juego_imcompatible{
+    public function jugar();
+}
+interface juego_compatible{
+    public function juego();
+}
+class encender implements juego_imcompatible,juego_compatible, video_consola{
+    public function jugar(){
+        echo "insertar juego";
+    }
+    public function juego(){
+        echo "empesar ha jugar";
+    }
+    public function uso(){
+        $this->jugar();
+        $this->juego();
+    }
+}
+class tipo implements juego_compatible, video_consola{
+    public function juego(){
+        echo "juego en uso";
+    }
+    public function uso(){
+        $this->juego();
+    }
+}
+class consola{
+    public function prendida(video_consola $encender){
+        $encender->uso();
+    }
+}
+$obj = new consola();
+$obj->prendida(new encender());
+$obj->prendida(new tipo());
+?>
