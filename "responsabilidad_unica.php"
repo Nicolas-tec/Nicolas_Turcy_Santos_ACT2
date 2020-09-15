@@ -1,0 +1,41 @@
+// .. codigo de la clase (clases.php)..//
+<?php
+class suma{
+    public function sumar($N1,$N2){
+        $R1=$N1+$N2;
+        return $R1;
+    }
+}
+class resta{
+    public function restar($N1,$N2){
+        $R2=$N1-$N2;
+        return $R2;
+    }
+}
+class multiplicacion{
+    public function multiplicar($N1,$N2){
+        $R3=$N1*$N2;
+        return $R3;
+    }
+}
+class divicion{
+    public function dividir($N1,$N2){
+        $R4=$N1/$N2;
+        return $R4;
+    }
+}
+?>
+//.. codigo de ingresos de variables..//
+<?php
+include("clases.php");
+$N1=10;
+$N2=20;
+echo "la sume es: ".suma::sumar($N1,$N2);
+echo "<br>";
+echo "la resta es: ".resta::restar($N1,$N2);
+echo "<br>";
+echo "la multiplicasion es: ".multiplicacion::multiplicar($N1,$N2);
+echo "<br>";
+echo "la divicion es: ".divicion::dividir($N1,$N2);
+echo "<br>";
+?>
