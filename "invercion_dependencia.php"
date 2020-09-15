@@ -1,0 +1,48 @@
+//.. codigo de la clase (clase5.php)..//
+<?php
+interface funcion{
+    public function E_funcion();
+    public function E_generador();
+}
+class generador{
+    private $buen;
+    private $mal;
+    public function generador($buen, $mal){
+        $this->mal = $mal;
+    }
+    public function E_funcion(){
+        $mal.E_funcion();
+    }
+}
+class E_funcion implements funcion{
+    public function E_funcion(){
+        if($E_funcion = 'si'){
+            echo "el generador funciona bien";
+        }else{
+            echo "error";
+        }
+    }
+    public function E_generador(){
+    }
+}
+class E_generador implements funcion{
+    public function E_funcion(){
+    }
+    public function E_generador(){
+        if($E_generador = 'si'){
+            echo "el generador esta encendido";
+        }else{
+            echo "el generador esta apagado";
+        }
+    }
+}
+?>
+//.. codigo de ingreso de variables..//
+<?php
+include("clase5.php");
+$obj = new E_funcion();
+$obj->E_funcion();
+echo "<br>";
+$obj2 = new E_generador();
+$obj2->E_generador("si");
+?>
