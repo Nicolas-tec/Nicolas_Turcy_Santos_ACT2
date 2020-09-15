@@ -1,0 +1,69 @@
+<?php
+interface red{
+    public function escribir();
+    public function recibir();
+}
+interface estado extends red{
+    public function esperar_mensaje();
+    public function recibirmensaje($can);
+}
+class metodo implements estado{
+    private $si = false;
+    private $no= 0;
+    public function estado(){
+        if($this->no = 0){
+        print "no has escrito<br>";
+        }
+        else{
+        print "ya has escrito<br>";
+        }
+
+    }
+    public function escribir(){
+        if($this->si){
+        print "puedes escribir un mensaje<br>";
+        }else{
+        print "no puedes escribir un  mensaje<br>";
+        $this->estado = true;
+        }
+    }
+    public function recibir(){
+        if($this->si){
+            print "puedes recibir mensaje<br>";
+            }else{
+            print "recibiendo mensaje<br>";
+            $this->estado = true;
+            }
+    }
+    public function esperar_mensaje(){
+        if($this->si){
+            print "sin mensajes en espera<br>";
+            $this->estado = false;
+            }else{
+                if($this->si = 0){
+                    print "no estas en espera<br>";
+                }else{
+                    print "1 mensaje en espera<br>";
+                    $this->estado = true; 
+                }
+    }
+}
+    public function recibirmensaje($can){
+        $this->si=$can;
+    }
+    public function pendiente($PEN){
+        if($this->estado){
+            print "tienes mensajes nuevos";
+        }else{
+            print "no tienes mensajes<br>";
+            $this->estado = false;
+        }
+    }
+}
+$obj = new metodo();
+$obj->estado();
+$obj->escribir();
+$obj->recibir();
+$obj->esperar_mensaje();
+$obj->recibirmensaje(100);
+?>
