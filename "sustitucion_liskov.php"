@@ -1,0 +1,44 @@
+//.. codigo de la clase (clases3.php)..//
+<?php
+class jugetes{
+    protected $estado =[];
+    public function insert(tiempo_C $tiempo_C,$tiempo_U){
+        return $tiempo_C->tiempo() < $this->estado[$tiempo_U];
+}
+}
+abstract class jugete{
+     abstract public function tiempo($tiempo_U);
+}
+class novedad{
+    public function tiempo($tiempo_U){
+        if($tiempo_U < 5 ){
+            return "el jugete es nuevo";
+        }else{
+            return "el jugete es viejo";
+        }
+    }
+}
+class valor_edad{  
+    public function tiempo($tiempo_U){
+        if($tiempo_U < 5 ){
+            return "el juegete vale menos";
+        }else{
+            return "el jugete vale mas";
+        }  
+    } 
+}
+?>
+//.. codigo de ingresos de variables..//
+<?php
+include("clases3.php");
+$tiempo_C=2;
+$tiempo_U=1;
+echo "tiempo de compra".$tiempo_C. "dias";
+echo "<br>";
+echo "tiempo de uso".$tiempo_U. "dias";
+echo "<br>";
+echo novedad::tiempo($tiempo_U);
+echo "<br>";
+echo valor_edad::tiempo($tiempo_U);
+echo "<br>";
+?>
